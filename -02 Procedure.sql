@@ -12,7 +12,7 @@ AS
 		values (@nome,@Email)
 END
 
-exec inserircliente @nome = João, @email = 'joaozinho123@gmail.com'
+exec inserircliente @nome = JoÃ£o, @email = 'joaozinho123@gmail.com'
 
 select * from Cliente
 
@@ -57,11 +57,11 @@ END;
 EXEC PedidoCliente @ClienteID = 1;
 
 -----------------------------------------------------------------------
-/*4. Registrar devolução de produto
+/*4. Registrar devoluÃ§Ã£o de produto
 
-Criando uma procedure que receba PedidoID e ProdutoID e que faça:
+Criando uma procedure que receba PedidoID e ProdutoID e que faÃ§a:
 
-*Remoção desse item do pedido
+*RemoÃ§Ã£o desse item do pedido
 
 *Devolva a quantidade ao estoque.
 */
@@ -91,27 +91,27 @@ SELECT * FROM ItemPedido
 SELECT * FROM Produto  ProdutoID = 2;  -- Estoque atualizado
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
-/*5. Relatório de vendas por categoria
+/*5. RelatÃ³rio de vendas por categoria
 
 Criando uma procedure que receba uma Categoria e retorne todos os produtos vendidos dessa categoria com quantidade total vendida e valor total.*/
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-CREATE PROCEDURE RelatórioDeVendasCate
+CREATE PROCEDURE RelatÃ³rioDeVendasCate
 @categoria nvarchar(50)
 as
 BEGIN
       select pr.Nome ,sum(it.Quantidade) as totalvendido,
-	         sum(it.quantidade * preço) as valortotal
+	         sum(it.quantidade * preÃ§o) as valortotal
 	  from ItemPedido it join Produto pr on it.ProdutoID = pr.ProdutoID 
 	  where pr.Categoria = @categoria
 	  group by pr.Nome
 END
 
-EXEC RelatórioDeVendasCate @Categoria = 'Informática';
+EXEC RelatÃ³rioDeVendasCate @Categoria = 'InformÃ¡tica';
 
 ---------------------------------------------------------------------------------------------------------------------------------
 /*6. Clientes com gastos acima de um valor
 
-Criando uma procedure que receba um parâmetro @ValorMinimo e que liste os clientes cujo total gasto seja maior que esse valor.*/
+Criando uma procedure que receba um parÃ¢metro @ValorMinimo e que liste os clientes cujo total gasto seja maior que esse valor.*/
 -----------------------------------------------------------------------------------------------------------------------------------
 create or alter procedure ClienteAltoValor
 
@@ -204,7 +204,7 @@ SELECT * FROM ItemPedido;
 SELECT * FROM Produto WHERE ProdutoID = 3;
 
 ----------------------------------------------------------
-/*9. Histórico de um cliente
+/*9. HistÃ³rico de um cliente
 
 Criando uma procedure que receba ClienteID e retorne:
 
@@ -214,7 +214,7 @@ Lista de pedidos com valores totais
 
 Total gasto por ele */
 ------------------------------------------------------------
-create procedure HistóricoCliente
+create procedure HistÃ³ricoCliente
 @ClienteId int
 
 as
@@ -241,11 +241,11 @@ BEGIN
     GROUP BY c.Nome;
 END;
 
-EXEC HistóricoCliente @ClienteID = 2;
+EXEC HistÃ³ricoCliente @ClienteID = 2;
 -------------------------------------------------------------------------------------------------------------------------------------------
-/*10. Relatório mensal de vendas
+/*10. RelatÃ³rio mensal de vendas
 
-Criando uma procedure que receba @Ano e @Mes, e mostre o total de vendas (em dinheiro) e a quantidade de pedidos feitos nesse período. */
+Criando uma procedure que receba @Ano e @Mes, e mostre o total de vendas (em dinheiro) e a quantidade de pedidos feitos nesse perÃ­odo. */
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 CREATE OR ALTER PROCEDURE sp_VendasMensais
