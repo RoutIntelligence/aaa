@@ -63,7 +63,7 @@ Criando uma procedure que receba PedidoID e ProdutoID e que faça:
 
 *Remoção desse item do pedido
 
-*Devolva a quantidade ao estoque.
+*Devolução de quantidade ao estoque.
 */
 ----------------------------------------------------------------------
 create procedure RegistroDev
